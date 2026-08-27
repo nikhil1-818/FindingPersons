@@ -1,16 +1,28 @@
-# Missing Person Identification System
+<div align="center">
 
-![Issues](https://img.shields.io/github/issues/gaganmanku96/Finding-missing-person-using-AI) ![Stars](https://img.shields.io/github/stars/gaganmanku96/Finding-missing-person-using-AI?style=social)
-![CodeRabbit Reviews](https://img.shields.io/coderabbit/prs/github/gaganmanku96/Finding-missing-person-using-AI?utm_source=oss&utm_medium=github&utm_campaign=gaganmanku96%2FFinding-missing-person-using-AI&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
+# Finding Persons
 
-![Streamlit](https://img.shields.io/badge/Streamlit-000000?style=for-the-badge&logo=streamlit&logoColor=white)
-![MediaPipe](https://img.shields.io/badge/MediaPipe-000000?style=for-the-badge&logo=mediapipe&logoColor=white)
-![Python](https://img.shields.io/badge/Python-000000?style=for-the-badge&logo=python&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-000000?style=for-the-badge&logo=sqlite&logoColor=white)
+### AI-Powered Missing Person Identification & Case Matching Platform
 
-> [![LinkedIn](https://i.stack.imgur.com/gVE0j.png) Endorse on LinkedIn](https://www.linkedin.com/in/gaganmanku96/) if this project was helpful.
+[![Issues](https://img.shields.io/github/issues/gaganmanku96/Finding-missing-person-using-AI?style=for-the-badge&color=FF570A&labelColor=171717)](https://github.com/gaganmanku96/Finding-missing-person-using-AI/issues)
+[![Stars](https://img.shields.io/github/stars/gaganmanku96/Finding-missing-person-using-AI?style=for-the-badge&color=FFD700&labelColor=171717)](https://github.com/gaganmanku96/Finding-missing-person-using-AI/stargazers)
+[![CodeRabbit Reviews](https://img.shields.io/coderabbit/prs/github/gaganmanku96/Finding-missing-person-using-AI?utm_source=oss&utm_medium=github&utm_campaign=gaganmanku96%2FFinding-missing-person-using-AI&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit%20Reviews&style=for-the-badge)](https://coderabbit.ai)
 
----
+<br/>
+
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![MediaPipe](https://img.shields.io/badge/MediaPipe-0097A7?style=for-the-badge&logo=mediapipe&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
+
+<br/>
+
+[![LinkedIn](https://img.shields.io/badge/Endorse%20on%20LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gaganmanku96/)
+
+</div>
+
+<br/>
 
 > **Disclaimer**
 >
@@ -18,7 +30,7 @@
 >
 > This project does not store, distribute, or commercialise any personal images. The face data derived from sample images (landmark vectors) is used only locally for matching demonstration and is not shared with any third party.
 
----
+<br/>
 
 ## Table of Contents
 
@@ -32,73 +44,85 @@
 - [Tech Stack](#tech-stack)
 - [FAQ](#faq)
 
----
+<br/>
 
 ## The Problem
 
 Hundreds of people — mostly children — go missing every day in India. When a sighting is reported, officers have to manually compare photos, sift through paperwork, and coordinate across stations. By the time a match is confirmed, the trail has often gone cold.
 
----
+**Finding Persons** closes that gap with automated face matching, live case dashboards, and instant email alerts — turning a manual, multi-day process into a matter of clicks.
+
+<br/>
 
 ## A Case, Start to Finish
 
-**Step 1 — Family files a report. Officer registers the case.**
+### Step 1 — Family files a report. Officer registers the case.
 
 A family in Haridwar reports their child missing. An officer opens the portal, uploads a photo, and the AI immediately detects the face and extracts a 468-point mesh — no manual tagging needed.
 
+<div align="center">
 <img src="./assets/screenshots/register_new_case.png" alt="Register New Case — face detected with bounding box" width="700"/>
+</div>
 
----
+<br/>
 
-**Step 2 — The dashboard tracks every open case.**
+### Step 2 — The dashboard tracks every open case.
 
 The officer's home screen shows live counts of found and not-found cases, and a map that plots where cases are concentrated across India.
 
+<div align="center">
 <img src="./assets/screenshots/homepage.png" alt="Officer dashboard with case counts and India map" width="700"/>
+</div>
 
----
+<br/>
 
-**Step 3 — A member of the public submits a sighting.**
+### Step 3 — A member of the public submits a sighting.
 
 Someone recognises the person and submits a photo through the public portal (no login required). The same face mesh is extracted and stored.
 
 When an admin clicks **Match Cases**, the KNN model compares all sightings against all open cases. If a face is close enough, the case is automatically flipped to **Found** and the complainant is notified by email.
 
+<div align="center">
 <img src="./assets/screenshots/view_cases.png" alt="View cases — Found status with sighting location and submitter details" width="700"/>
+</div>
 
----
+<br/>
 
-**Step 4 — The city map tells the bigger picture.**
+### Step 4 — The city map tells the bigger picture.
 
 Admins can see which cities have the most unresolved cases and track resolution rates over time.
 
+<div align="center">
 <img src="./assets/screenshots/cases_by_city.png" alt="Cases by city — India map with city summary table" width="700"/>
+</div>
 
----
+<br/>
 
 ## How It Works
 
-1. **Officer registers a case** → uploads a photo → AI extracts a 468-point face mesh
-2. **Public submits a sighting** → uploads a photo or video → same extraction
-3. **Admin clicks Refresh** → KNN matches faces across both datasets → email sent to complainant on match
+| Stage | Action |
+|:---|:---|
+| **1. Registration** | Officer registers a case → uploads a photo → AI extracts a 468-point face mesh |
+| **2. Sighting** | Public submits a sighting → uploads a photo or video → same extraction pipeline runs |
+| **3. Matching** | Admin clicks **Refresh** → KNN matches faces across both datasets → email sent to complainant on match |
 
 No manual photo comparison. No paperwork pile-up.
 
----
+<br/>
 
 ## Features
 
 | Feature | Details |
-|---|---|
-| Face detection | MediaPipe Face Landmarker — highlights detected faces, handles multiple people in frame |
-| AI matching | KNN on 1,404-dimensional face vectors; shows confidence % |
-| Video sightings | Upload a video — unique faces extracted automatically per frame |
-| Live map | Dashboard map showing case density by city across India |
-| Email alerts | Auto-notifies complainant email when a match is confirmed |
-| Role-based access | Admins can match, edit, delete; Officers can register and view |
-| Public portal | Separate mobile-friendly submission page, no login needed |
+|:---|:---|
+| **Face detection** | MediaPipe Face Landmarker — highlights detected faces, handles multiple people in frame |
+| **AI matching** | KNN on 1,404-dimensional face vectors; shows confidence % |
+| **Video sightings** | Upload a video — unique faces extracted automatically per frame |
+| **Live map** | Dashboard map showing case density by city across India |
+| **Email alerts** | Auto-notifies complainant email when a match is confirmed |
+| **Role-based access** | Admins can match, edit, delete; Officers can register and view |
+| **Public portal** | Separate mobile-friendly submission page, no login needed |
 
----
+<br/>
 
 ## Getting Started
 
@@ -120,27 +144,31 @@ streamlit run mobile_app.py
 
 The SQLite database and face landmarker model (~30 MB, auto-downloaded on first use) are created automatically.
 
-### Optional: Email notifications
+### Optional: Email Notifications
 
 Set these environment variables to enable email alerts on match:
+
 ```
 SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD
 ```
+
 The complainant's email entered during case registration is used as the recipient.
 
----
+<br/>
 
 ## Configuring Login Credentials
 
 Credentials are stored in `login_config.yml`. To add or change a user:
 
 **1. Generate a bcrypt password hash:**
+
 ```python
 import bcrypt
 print(bcrypt.hashpw(b"your_password", bcrypt.gensalt()).decode())
 ```
 
 **2. Edit `login_config.yml`:**
+
 ```yaml
 credentials:
   usernames:
@@ -154,20 +182,21 @@ credentials:
 ```
 
 **Roles:**
+
 | Role | Permissions |
-|---|---|
-| Admin | Register cases, view all cases, trigger matching, edit/delete cases |
-| Officer | Register cases, view own cases |
+|:---|:---|
+| **Admin** | Register cases, view all cases, trigger matching, edit/delete cases |
+| **Officer** | Register cases, view own cases |
 
 > `login_config.yml` is git-ignored by default. Never commit real credentials.
 
----
+<br/>
 
 ## Seeding Demo Data
 
 The `scripts/` folder contains two utilities for populating the database with demo data.
 
-### Step 1 — Download sample images
+### Step 1 — Download Sample Images
 
 ```bash
 # Download ~2 images per celebrity into scripts/bulk_data/reported/
@@ -180,18 +209,20 @@ uv run scripts/download_celebrity_images.py --dest both
 This uses DuckDuckGo image search — no API key needed.
 
 You can also drop your own images directly into:
+
 ```
 scripts/bulk_data/reported/        ← missing person cases
 scripts/bulk_data/publicly_seen/   ← public sighting submissions
 ```
 
-### Step 2 — Run the bulk upload
+### Step 2 — Run the Bulk Upload
 
 ```bash
 python scripts/bulk_upload.py
 ```
 
 This processes every image in both folders:
+
 - Extracts a face mesh using MediaPipe (images with no detectable face are skipped)
 - Generates realistic metadata (names, cities, Aadhaar numbers, last-seen locations)
 - Inserts records into the SQLite database
@@ -204,23 +235,26 @@ python scripts/bulk_upload.py --officer your_username
 ```
 
 To reset and re-seed from scratch:
+
 ```bash
 sqlite3 sqlite_database.db "DELETE FROM registeredcases; DELETE FROM publicsubmissions;"
 python scripts/bulk_upload.py
 ```
 
----
+<br/>
 
 ## Tech Stack
 
-- **Streamlit** — UI for both portals
-- **MediaPipe Tasks** — face mesh landmark extraction (468 points × 3D)
-- **scikit-learn KNN** — face matching
-- **SQLModel + SQLite** — data storage
-- **Folium** — interactive map
-- **OpenCV** — video frame extraction
+| Layer | Technology |
+|:---|:---|
+| **UI** | Streamlit (both portals) |
+| **Face Landmarks** | MediaPipe Tasks — 468 points × 3D |
+| **Matching** | scikit-learn KNN |
+| **Storage** | SQLModel + SQLite |
+| **Mapping** | Folium |
+| **Video Processing** | OpenCV |
 
----
+<br/>
 
 ## FAQ
 
@@ -240,14 +274,22 @@ The map uses a built-in city → coordinates lookup. If a city is missing, open 
 Everything is in `sqlite_database.db` (git-ignored) in the project root. Images are stored as JPGs in `resources/` (also git-ignored). Nothing is sent to any external server.
 
 **Q: How do I reset the database?**
+
 ```bash
 sqlite3 sqlite_database.db "DELETE FROM registeredcases; DELETE FROM publicsubmissions;"
 ```
+
 Or simply delete `sqlite_database.db` — it will be recreated on next run.
 
 **Q: Can the public portal be hosted separately from the officer portal?**
 Yes. They are independent Streamlit apps (`Home.py` and `mobile_app.py`) and share only the SQLite database. Point both to the same database file path and they will work together.
 
+<br/>
+
+<div align="center">
+
 ---
 
 *Thanks to the [MediaPipe](https://mediapipe.dev/) team for the open-source face landmarker model.*
+
+</div>
